@@ -1,0 +1,21 @@
+#titulo{
+    text-align: center;
+}
+h3{
+    margin-left: 180px;
+}
+p{
+    margin-left: 170px;
+}
+#columna1{
+    float: left;
+    margin-left: 50px;
+}
+#columna2{
+    float: right;
+    margin-right: 50px;
+}
+#boton{
+    text-align: center;
+    margin-top: 150%;
+}
