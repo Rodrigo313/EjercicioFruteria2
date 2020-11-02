@@ -19,3 +19,6 @@ p{
     text-align: center;
     margin-top: 150%;
 }
+input[type="text"]{
+    margin-left: 170px;
+}
