@@ -57,49 +57,22 @@ let pina = new FrutasInvierno(0,3.59,"pina","conservar en nevera");
 let granada = new FrutasInvierno(0,0.56,"granada","conservar en nevera");
 
 
-function anadirCompra(fruta){
-    let kilos = parseInt(prompt("¿Cuántos kilos desea comprar?"));
-    switch(fruta){
-        case manzana.getNombre():
-            manzana.sumarKilos(kilos);
-            break;
-
-        case platanos.getNombre():
-            platanos.sumarKilos(kilos);
-            break;
-
-        case naranjas.getNombre():
-            naranjas.sumarKilos(kilos);
-            break;
-
-        case nectarina.getNombre():
-            nectarina.sumarKilos(kilos);
-            break;
-
-        case pina.getNombre():
-            pina.sumarKilos(kilos);
-            break;
-
-        case peras.getNombre():
-            peras.sumarKilos(kilos);
-            break;
-
-        case arandanos.getNombre():
-            arandanos.sumarKilos(kilos);
-            break;
-
-        case kiwi.getNombre():
-            kiwi.sumarKilos(kilos);
-            break;
-
-        case sandia.getNombre():
-            sandia.sumarKilos(kilos);
-            break;
-
-        case granada.getNombre():
-            granada.sumarKilos(kilos);
-            break;
-    }   
+function anadirCompra(frutas){
+    let kilos = document.getElementById(frutas).value;//Recojo kilitos
+    let derecha = document.getElementById("parteDerecha");
+    let texto = document.createTextNode("Se han añadido " + kilos + " kilos de " + frutas + "\n");
+    let parrafo = document.createElement("p");
+    parrafo.appendChild(texto);
+    derecha.appendChild(parrafo);
+    parrafo.classList.add(frutas);
+    for (let p = 0; p < derecha.getElementsByTagName("p").length; p++) {
+        if((derecha.getElementsByTagName("p")[p].classList.contains(frutas))){
+            derecha.getElementsByTagName("p")[p].classList.add("estilos");
+        }else{
+            derecha.getElementsByTagName("p")[p].classList.remove("estilos");
+        }
+    }
+    
 }
 
 function botoncin(){
