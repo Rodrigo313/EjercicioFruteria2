@@ -72,10 +72,52 @@ function anadirCompra(frutas){
             derecha.getElementsByTagName("p")[p].classList.remove("estilos");
         }
     }
+
+    switch(frutas){
+        case manzana.getNombre():
+            manzana.sumarKilos(kilos);
+            break;
+
+        case platanos.getNombre():
+            platanos.sumarKilos(kilos);
+            break;
+
+        case naranjas.getNombre():
+            naranjas.sumarKilos(kilos);
+            break;
+
+        case nectarina.getNombre():
+            nectarina.sumarKilos(kilos);
+            break;
+
+        case pina.getNombre():
+            pina.sumarKilos(kilos);
+            break;
+
+        case peras.getNombre():
+            peras.sumarKilos(kilos);
+            break;
+
+        case arandanos.getNombre():
+            arandanos.sumarKilos(kilos);
+            break;
+
+        case kiwi.getNombre():
+            kiwi.sumarKilos(kilos);
+            break;
+
+        case sandia.getNombre():
+            sandia.sumarKilos(kilos);
+            break;
+
+        case granada.getNombre():
+            granada.sumarKilos(kilos);
+            break;
+    }
     
 }
 
-function botoncin(){
+function botoncin(frutas){
     let fecha = new Date();
     document.getElementById("cajaTexto").value = "Fecha de compra: " + fecha.toString() + "\n";
 
