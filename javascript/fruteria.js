@@ -57,9 +57,23 @@ let pina = new FrutasInvierno(0,3.59,"pina","conservar en nevera");
 let granada = new FrutasInvierno(0,0.56,"granada","conservar en nevera");
 
 
-function anadirCompra(fruta){
-    let kilos = parseInt(prompt("¿Cuántos kilos desea comprar?"));
-    switch(fruta){
+function anadirCompra(frutas){
+    let kilos = document.getElementById(frutas).value;//Recojo kilitos
+    let derecha = document.getElementById("parteDerecha");
+    let texto = document.createTextNode("Se han añadido " + kilos + " kilos de " + frutas + "\n");
+    let parrafo = document.createElement("p");
+    parrafo.appendChild(texto);
+    derecha.appendChild(parrafo);
+    parrafo.classList.add(frutas);
+    for (let p = 0; p < derecha.getElementsByTagName("p").length; p++) {
+        if((derecha.getElementsByTagName("p")[p].classList.contains(frutas))){
+            derecha.getElementsByTagName("p")[p].classList.add("estilos");
+        }else{
+            derecha.getElementsByTagName("p")[p].classList.remove("estilos");
+        }
+    }
+
+    switch(frutas){
         case manzana.getNombre():
             manzana.sumarKilos(kilos);
             break;
@@ -99,10 +113,11 @@ function anadirCompra(fruta){
         case granada.getNombre():
             granada.sumarKilos(kilos);
             break;
-    }   
+    }
+    
 }
 
-function botoncin(){
+function botoncin(frutas){
     let fecha = new Date();
     document.getElementById("cajaTexto").value = "Fecha de compra: " + fecha.toString() + "\n";
 

@@ -10,10 +10,12 @@ p{
 #columna1{
     float: left;
     margin-left: 50px;
+    overflow: hidden;
 }
 #columna2{
     float: right;
     margin-right: 50px;
+    overflow: hidden;
 }
 #boton{
     text-align: center;
@@ -27,4 +29,10 @@ input[type=text]{
     width: 25%;
     border: 1px solid;
     padding: 106px;
+    overflow: hidden;
+    clear: both;
+}
+
+.estilos{
+    background-color: red;
 }
