@@ -5,7 +5,7 @@ h3{
     margin-left: 180px;
 }
 p{
-    margin-left: 170px;
+    margin-left: 50px;
 }
 #columna1{
     float: left;
@@ -14,23 +14,24 @@ p{
 }
 #columna2{
     float: right;
-    margin-right: 50px;
+    margin-right: 450px;
     overflow: hidden;
 }
-#boton{
-    text-align: center;
-    margin-top: 150%;
+#formulario{
+    margin-top: 90%;
 }
 input[type=text]{
     margin-left: 170px;
 }
 #parteDerecha{
     float: right;
-    width: 25%;
+    width: 10%;
     border: 1px solid;
-    padding: 106px;
+    padding: 0px;
     overflow: hidden;
     clear: both;
+    height: 1170px;
+    overflow: scroll;
 }
 
 .estilos{
