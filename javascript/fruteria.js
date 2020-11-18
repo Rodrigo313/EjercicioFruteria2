@@ -222,9 +222,18 @@ window.onload = function(){
             event.preventDefault();
         }
     },false);
-
+    document.getElementById("si").addEventListener('click',mostrarCodigoTarjeta,false);
 }
 
+function mostrarCodigoTarjeta(){
+    let codigo = document.getElementById("codigoTarjeta");
+    let botonSi = document.getElementById("si");
+    let botonNo = document.getElementById("no");
+
+    if(botonSi.checked){
+        
+    }
+}
 
 function ventana() {
     let ventanita = window.open("", "pop-up", "width=500,height=300, toolbar=false, menubar=false, location=false");
