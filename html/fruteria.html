@@ -61,8 +61,8 @@
                     <legend>Formulario</legend>
                     <p id="parrafoNombre">Nombre: <input id="nombre" type="text" name="nombre" minlength="4" maxlength="15" required></p>
                     <p id="parrafoApellidos">Apellidos: <input id="apellidos" type="text" name="apellidos" required></p>
-                    <p>Dirección: <input type="text" name="direccion" required></p>
-                    <p>Email: <input type="email" name="email" required></p>
+                    <p id="parrafoDireccion">Dirección: <input id="direccion" type="text" name="direccion" required></p>
+                    <p id="parrafoEmail">Email: <input id="email" type="email" name="email" required></p>
                     <p>Forma de pago:<br>
                         <input type="radio" name="entrega" required>Entrega
                         <input type="radio" name="entrega" required>Tarjeta
@@ -71,7 +71,7 @@
                         <input id="si" type="radio" name="si/no">Si
                         <input id="no" type="radio" name="si/no">No
                     </p>
-                    <input id="codigoTarjeta" type="hidden" name="codigo">
+                    <input id="codigoTarjeta" type="hidden" name="codigo" placeholder="Código">
                     <input type="submit" value="Realizar pedido"><br><br>
                     <button type="reset" value="Limpiar formulario">Limpiar formulario</button>
                 </fieldset>

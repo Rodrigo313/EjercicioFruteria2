@@ -1,3 +1,4 @@
+//Clase frutas
 class Frutas{
     constructor(kilos, precio, nombre){
         this.kilos = kilos;
@@ -21,6 +22,7 @@ class Frutas{
     }
 }
 
+//Clase frutas de verano que extiende de frutas
 class FrutasVerano extends Frutas{
     constructor(kilos, precio, nombre, proximidad, region){
         super(kilos, precio, nombre);
@@ -35,6 +37,7 @@ class FrutasVerano extends Frutas{
     }
 }
 
+//clase frutas de invierno que extiende de frutas
 class FrutasInvierno extends Frutas{
     constructor(kilos, precio, nombre, conservar){
         super(kilos, precio, nombre);
@@ -45,6 +48,7 @@ class FrutasInvierno extends Frutas{
     }
 }
 
+//instancias de las clases
 let manzana = new FrutasInvierno(0,2.5,"manzana","no conservar en nevera");
 let peras = new FrutasVerano(0,1.79,"peras","de proximidad","Salamanca");
 let platanos = new FrutasVerano(0,2.00,"platanos","de proximidad", "Canarias");
@@ -57,6 +61,7 @@ let pina = new FrutasInvierno(0,3.59,"pina","conservar en nevera");
 let granada = new FrutasInvierno(0,0.56,"granada","conservar en nevera");
 
 
+//funcion para añadir la compra en la parte de la derecha y recoger los datos que hemos añadido
 function anadirCompra(frutas){
     let kilos = document.getElementById(frutas).value;//Recojo kilitos
     let derecha = document.getElementById("parteDerecha");
@@ -117,7 +122,10 @@ function anadirCompra(frutas){
     
 }
 
+//variable para recoger los datos de las frutas
 var datos = "";
+
+//Función para mostrar los datos de las frutas
 function botoncin(){
     let fecha = new Date();
     datos = "Fecha de compra: " + fecha.toString() + "<br>";
@@ -214,6 +222,7 @@ function botoncin(){
     
 }
 
+//función para que se hagan las validaciones del formulario
 window.onload = function(){
     document.getElementById("formulario").addEventListener('submit',function(event){
         let validar=validaciones(event);
@@ -223,26 +232,51 @@ window.onload = function(){
         }
     },false);
     document.getElementById("si").addEventListener('click',mostrarCodigoTarjeta,false);
+    document.getElementById("no").addEventListener('click',mostrarCodigoTarjeta,false);
+    document.getElementById("cerrar").addEventListener('click',cerrarVentana,false);
+    document.getElementById("tramitar").addEventListener('click',limpiar,false);
 }
 
+//función para mostrar el código de la tarjeta en caso de que pulsemos el botón sí
 function mostrarCodigoTarjeta(){
     let codigo = document.getElementById("codigoTarjeta");
     let botonSi = document.getElementById("si");
     let botonNo = document.getElementById("no");
 
     if(botonSi.checked){
-        
+        botonSi.appendChild(codigo);
+        codigo.show;
+    }else if(botonNo.checked){
+        botonNo.appendChild(codigo);
+        codigo.hidden;
     }
 }
 
+//variable para la ventana
+var ventanita;
+//función para que se muestre la ventana emergente
 function ventana() {
-    let ventanita = window.open("", "pop-up", "width=500,height=300, toolbar=false, menubar=false, location=false");
+    ventanita = window.open("", "pop-up", "width=500,height=300, toolbar=false, menubar=false, location=false");
     ventanita.document.write(botoncin());
-    ventanita.document.write("<input type=button value=Terminar pedido><br>");
-    ventanita.document.write("<input type=button value=Volver>");
+    ventanita.document.write("<input id=tramitar type=button value=Terminar pedido><br>");
+    ventanita.document.write("<input id=cerrar type=button value=Volver>");
 }
 
+//función para cerrar la ventana emergente
+function cerrarVentana(){
+    ventanita = window.close();
+}
+
+//función para limpiar la parte de la derecha y el formulario
+function limpiar(){
+    derecha = document.getElementById("parteDerecha");
+    derecha.innerHTML = "";
+}
+
+//función para hacer las validaciones del formulario
 function validaciones(event){
+    let maxLetras = 15;
+    let minLetras = 4;
     var nombre = document.getElementById("nombre");
     var nombreLabel= document.getElementById("parrafoNombre"); 
     if(!nombre.validity.valid){
@@ -251,10 +285,30 @@ function validaciones(event){
         return false;
     }
 
+    if((nombre.length < minLetras) && (nombre.length > maxLetras)){
+        return false;
+    }
+
     var apellidos = document.getElementById("apellidos");
     var apellidosLabel= document.getElementById("parrafoApellidos"); 
     if(!apellidos.validity.valid){
         apellidosLabel.style.color = "red";
+        event.preventDefault();
+        return false;
+    }
+
+    var direccion = document.getElementById("direccion");
+    var direccionLabel= document.getElementById("parrafoDireccion"); 
+    if(!direccion.validity.valid){
+        direccionLabel.style.color = "red";
+        event.preventDefault();
+        return false;
+    }
+
+    var email = document.getElementById("email");
+    var emailLabel= document.getElementById("parrafoEmail"); 
+    if(!email.validity.valid){
+        emailLabel.style.color = "red";
         event.preventDefault();
         return false;
     }
