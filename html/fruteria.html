@@ -8,57 +8,73 @@
     </head>
     <body>
         <h1 id="titulo">Nuestras frutas</h1>
+        <div id="parteDerecha">
+            
+        </div>
         <div id="columna1">
-            <img src="../imagenes/manzanas.jpg" height="300px" width="500px" onclick="anadirCompra('manzana')">
+            <img src="../imagenes/manzanas.jpg" height="100px" width="300px" onclick="anadirCompra('manzana')">
             <h3>Manzanas</h3> 
             <p>2.5€/kilo</p>
             <input type="text" id="manzana"><br><br>
-            <img src="../imagenes/platanos.jpg" height="300px" width="500px" onclick="anadirCompra('platanos')">
+            <img src="../imagenes/platanos.jpg" height="100px" width="300px" onclick="anadirCompra('platanos')">
             <h3>Plátanos</h3>
             <p>2.00€/kilo</p>
             <input type="text" id="platanos"><br><br>
-            <img src="../imagenes/naranjas.jpg" height="300px" width="500px" onclick="anadirCompra('naranjas')">
+            <img src="../imagenes/naranjas.jpg" height="100px" width="300px" onclick="anadirCompra('naranjas')">
             <h3>Naranjas</h3>
             <p>1.43€/kilo</p>
             <input type="text" id="naranjas"><br><br>
-            <img src="../imagenes/nectarinas.jpg" height="300px" width="500px" onclick="anadirCompra('nectarinas')">
+            <img src="../imagenes/nectarinas.jpg" height="100px" width="300px" onclick="anadirCompra('nectarinas')">
             <h3>Nectarinas</h3>
             <p>1.73€/kilo</p>
             <input type="text" id="nectarinas"><br><br>
-            <img src="../imagenes/Piña.jpg" height="300px" width="500px" onclick="anadirCompra('pina')">
+            <img src="../imagenes/Piña.jpg" height="100px" width="300px" onclick="anadirCompra('pina')">
             <h3>Piña</h3>
             <p>3.59€/kilo</p>
             <input type="text" id="pina"><br><br>
         </div>
         <div id="columna2">
-            <img src="../imagenes/peras.jpg" height="300px" width="500px" onclick="anadirCompra('peras')">
+            <img src="../imagenes/peras.jpg" height="100px" width="300px" onclick="anadirCompra('peras')">
             <h3>Peras</h3>
             <p>1.79€/kilo</p>
             <input type="text" id="peras"><br><br>
-            <img src="../imagenes/arandanos.jpg" height="300px" width="500px" onclick="anadirCompra('arandanos')">
+            <img src="../imagenes/arandanos.jpg" height="100px" width="300px" onclick="anadirCompra('arandanos')">
             <h3>Arándanos</h3>
             <p>4.48€/kilo</p>
             <input type="text" id="arandanos"><br><br>
-            <img src="../imagenes/kiwi.jpg" height="300px" width="500px" onclick="anadirCompra('kiwi')">
+            <img src="../imagenes/kiwi.jpg" height="100px" width="300px" onclick="anadirCompra('kiwi')">
             <h3>Kiwi</h3>
             <p>3.85€/kilo</p>
             <input type="text" id="kiwi"><br><br>
-            <img src="../imagenes/sandia.jpg" height="300px" width="500px" onclick="anadirCompra('sandia')">
+            <img src="../imagenes/sandia.jpg" height="100px" width="300px" onclick="anadirCompra('sandia')">
             <h3>Sandía</h3>
             <p>0.53€/kilo</p>
             <input type="text" id="sandia"><br><br>
-            <img src="../imagenes/granada.jpg" height="300px" width="500px" onclick="anadirCompra('granada')">
+            <img src="../imagenes/granada.jpg" height="100px" width="300px" onclick="anadirCompra('granada')">
             <h3>Granada</h3>
             <p>0.56€/kilo</p>
             <input type="text" id="granada"><br><br>
         </div>
-        <div id="parteDerecha">
-            
-        </div>
-        <div id="boton">
-            <input type="button" value="Comprar" onclick="botoncin()">
-            <br>
-            <textarea rows="20" cols="100" id="cajaTexto"></textarea>
+        <div id="formulario">
+            <form>
+                <fieldset>
+                    <legend>Formulario</legend>
+                    <p>Nombre: <input type="text" name="nombre" minlength="4" maxlength="15" required></p>
+                    <p>Apellidos: <input type="text" name="apellidos" required></p>
+                    <p>Dirección: <input type="text" name="direccion"></p>
+                    <p>Email: <input type="email" name="email"></p>
+                    <p>Forma de pago:<br>
+                        <input type="radio" name="entrega">Entrega
+                        <input type="radio" name="tarjeta">Tarjeta
+                    </p>
+                    <p>Tarjeta cliente:<br>
+                        <input type="radio" name="si">Si
+                        <input type="radio" name="no">No
+                    </p>
+                    <input type="submit" value="Realizar pedido" onclick="botoncin()"><br><br>
+                    <button type="reset" value="Limpiar formulario">Limpiar formulario</button>
+                </fieldset>
+            </form>
         </div>
     </body>
 </html>

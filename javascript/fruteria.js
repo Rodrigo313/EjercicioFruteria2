@@ -117,20 +117,21 @@ function anadirCompra(frutas){
     
 }
 
-function botoncin(frutas){
+var datos = "";
+function botoncin(){
     let fecha = new Date();
-    document.getElementById("cajaTexto").value = "Fecha de compra: " + fecha.toString() + "\n";
+    datos = "Fecha de compra: " + fecha.toString() + "<br>";
 
-    document.getElementById("cajaTexto").value += manzana.getNombre() + " ---- " + manzana.getKilos() + " --- " + manzana.getPrecio() + " --- " + manzana.getPrecio()*manzana.getKilos() + "\n";
-    document.getElementById("cajaTexto").value += platanos.getNombre() + " ---- " + platanos.getKilos() + " --- " + platanos.getPrecio() + " --- " + platanos.getPrecio()*platanos.getKilos() + "\n";
-    document.getElementById("cajaTexto").value += naranjas.getNombre() + " ---- " + naranjas.getKilos() + " --- " + naranjas.getPrecio() + " --- " + naranjas.getPrecio()*naranjas.getKilos() + "\n";
-    document.getElementById("cajaTexto").value += nectarina.getNombre() + " ---- " + nectarina.getKilos() + " --- " + nectarina.getPrecio() + " --- " + nectarina.getPrecio()*nectarina.getKilos() + "\n";
-    document.getElementById("cajaTexto").value += pina.getNombre() + " ---- " + pina.getKilos() + " --- " + pina.getPrecio() + " --- " + pina.getPrecio()*pina.getKilos() + "\n";
-    document.getElementById("cajaTexto").value += peras.getNombre() + " ---- " + peras.getKilos() + " --- " + peras.getPrecio() + " --- " + peras.getPrecio()*peras.getKilos() + "\n";
-    document.getElementById("cajaTexto").value += arandanos.getNombre() + " ---- " + arandanos.getKilos() + " --- " + arandanos.getPrecio() + " --- " + arandanos.getPrecio()*arandanos.getKilos() + "\n";
-    document.getElementById("cajaTexto").value += kiwi.getNombre() + " ---- " + kiwi.getKilos() + " --- " + kiwi.getPrecio() + " --- " + kiwi.getPrecio()*kiwi.getKilos() + "\n";
-    document.getElementById("cajaTexto").value += sandia.getNombre() + " ---- " + sandia.getKilos() + " --- " + sandia.getPrecio() + " --- " + sandia.getPrecio()*sandia.getKilos() + "\n";
-    document.getElementById("cajaTexto").value += granada.getNombre() + " ---- " + granada.getKilos() + " --- " + granada.getPrecio() + " --- " + granada.getPrecio()*granada.getKilos() + "\n";
+    datos += manzana.getNombre() + " ---- " + manzana.getKilos() + " --- " + manzana.getPrecio() + " --- " + manzana.getPrecio()*manzana.getKilos() + "<br>";
+    datos += platanos.getNombre() + " ---- " + platanos.getKilos() + " --- " + platanos.getPrecio() + " --- " + platanos.getPrecio()*platanos.getKilos() + "<br>";
+    datos += naranjas.getNombre() + " ---- " + naranjas.getKilos() + " --- " + naranjas.getPrecio() + " --- " + naranjas.getPrecio()*naranjas.getKilos() + "<br>";
+    datos += nectarina.getNombre() + " ---- " + nectarina.getKilos() + " --- " + nectarina.getPrecio() + " --- " + nectarina.getPrecio()*nectarina.getKilos() + "<br>";
+    datos += pina.getNombre() + " ---- " + pina.getKilos() + " --- " + pina.getPrecio() + " --- " + pina.getPrecio()*pina.getKilos() + "<br>";
+    datos += peras.getNombre() + " ---- " + peras.getKilos() + " --- " + peras.getPrecio() + " --- " + peras.getPrecio()*peras.getKilos() + "<br>";
+    datos += arandanos.getNombre() + " ---- " + arandanos.getKilos() + " --- " + arandanos.getPrecio() + " --- " + arandanos.getPrecio()*arandanos.getKilos() + "<br>";
+    datos += kiwi.getNombre() + " ---- " + kiwi.getKilos() + " --- " + kiwi.getPrecio() + " --- " + kiwi.getPrecio()*kiwi.getKilos() + "<br>";
+    datos += sandia.getNombre() + " ---- " + sandia.getKilos() + " --- " + sandia.getPrecio() + " --- " + sandia.getPrecio()*sandia.getKilos() + "<br>";
+    datos += granada.getNombre() + " ---- " + granada.getKilos() + " --- " + granada.getPrecio() + " --- " + granada.getPrecio()*granada.getKilos() + "<br>";
 
     var precioTotal = 0;
     var precioMedio = 0;
@@ -202,12 +203,36 @@ function botoncin(frutas){
     }
 
     if(precioTotal != 0){
-        document.getElementById("cajaTexto").value += "Precio total: " + precioTotal + "€" + "\n";
+        datos += "Precio total: " + precioTotal + "€" + "<br>";
     }
 
     if(contador != 0){
         precioMedio = precioTotal/contador;
-        document.getElementById("cajaTexto").value += "Precio medio: " + precioMedio + "€";
+        datos += "Precio medio: " + precioMedio + "€";
     }
+    ventana = window.open("", "pop-up", "width=500,height=300, toolbar=false, menubar=false, location=false");
+    ventana.document.write(datos);
+    ventana.document.write("<input type=button value=Terminar pedido><br>");
+    ventana.document.write("<input type=button value=Volver>");
+}
+
+function envioF(){
+    
+    
+    /*let nombreF = document.getElementById("nombre").textContent;
+    let obtenN = nombreF.innerHTML;
+
+
+    let apellidoF = document.getElementById("apellidos").textContent;
+    let obtenN = document.innerHTML;
+
+    let direccionF = document.getElementById("direccion").textContent;
+    let obtenD = document.innerHTML;
+
+    ventana.document.write("Nombre: " + obtenN + "<br>");
+    ventana.document.write("Apelldios: " + apellidoF + "<br>");
+    ventana.document.write("Direccion: " + direccionF + "<br>");
+    ventana.document.write("<button onclick='opener.cerrar();'>Cerrar</button>");*/
+
 }
 
