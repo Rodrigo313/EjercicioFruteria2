@@ -55,23 +55,24 @@
             <p>0.56€/kilo</p>
             <input type="text" id="granada"><br><br>
         </div>
-        <div id="formulario">
-            <form>
+        <div >
+            <form id="formulario" method="GET" action="#" novalidate>
                 <fieldset>
                     <legend>Formulario</legend>
-                    <p>Nombre: <input type="text" name="nombre" minlength="4" maxlength="15" required></p>
-                    <p>Apellidos: <input type="text" name="apellidos" required></p>
-                    <p>Dirección: <input type="text" name="direccion"></p>
-                    <p>Email: <input type="email" name="email"></p>
+                    <p id="parrafoNombre">Nombre: <input id="nombre" type="text" name="nombre" minlength="4" maxlength="15" required></p>
+                    <p id="parrafoApellidos">Apellidos: <input id="apellidos" type="text" name="apellidos" required></p>
+                    <p>Dirección: <input type="text" name="direccion" required></p>
+                    <p>Email: <input type="email" name="email" required></p>
                     <p>Forma de pago:<br>
-                        <input type="radio" name="entrega">Entrega
-                        <input type="radio" name="tarjeta">Tarjeta
+                        <input type="radio" name="entrega" required>Entrega
+                        <input type="radio" name="entrega" required>Tarjeta
                     </p>
                     <p>Tarjeta cliente:<br>
-                        <input type="radio" name="si">Si
-                        <input type="radio" name="no">No
+                        <input id="si" type="radio" name="si/no">Si
+                        <input id="no" type="radio" name="si/no">No
                     </p>
-                    <input type="submit" value="Realizar pedido" onclick="botoncin()"><br><br>
+                    <input id="codigoTarjeta" type="hidden" name="codigo">
+                    <input type="submit" value="Realizar pedido"><br><br>
                     <button type="reset" value="Limpiar formulario">Limpiar formulario</button>
                 </fieldset>
             </form>

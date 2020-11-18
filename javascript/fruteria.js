@@ -137,7 +137,7 @@ function botoncin(){
     var precioMedio = 0;
     var contador = 0;
 
-    var texto = "";
+    /*var texto = "";
     if(manzana.getKilos() != 0){
         texto += manzana.getNombre() + " --Fruta de Invierno-- " + manzana.getConservar() + "\n";
         precioTotal += manzana.getKilos()*manzana.getPrecio();
@@ -200,7 +200,7 @@ function botoncin(){
 
     if(texto != ""){
         alert(texto);
-    }
+    }*/
 
     if(precioTotal != 0){
         datos += "Precio total: " + precioTotal + "€" + "<br>";
@@ -208,31 +208,47 @@ function botoncin(){
 
     if(contador != 0){
         precioMedio = precioTotal/contador;
-        datos += "Precio medio: " + precioMedio + "€";
+        datos += "Precio medio: " + precioMedio + "€" + "<br>";
     }
-    ventana = window.open("", "pop-up", "width=500,height=300, toolbar=false, menubar=false, location=false");
-    ventana.document.write(datos);
-    ventana.document.write("<input type=button value=Terminar pedido><br>");
-    ventana.document.write("<input type=button value=Volver>");
+    return datos;
+    
 }
 
-function envioF(){
-    
-    
-    /*let nombreF = document.getElementById("nombre").textContent;
-    let obtenN = nombreF.innerHTML;
+window.onload = function(){
+    document.getElementById("formulario").addEventListener('submit',function(event){
+        let validar=validaciones(event);
+        if(validar){
+            ventana();
+            event.preventDefault();
+        }
+    },false);
+
+}
 
 
-    let apellidoF = document.getElementById("apellidos").textContent;
-    let obtenN = document.innerHTML;
+function ventana() {
+    let ventanita = window.open("", "pop-up", "width=500,height=300, toolbar=false, menubar=false, location=false");
+    ventanita.document.write(botoncin());
+    ventanita.document.write("<input type=button value=Terminar pedido><br>");
+    ventanita.document.write("<input type=button value=Volver>");
+}
 
-    let direccionF = document.getElementById("direccion").textContent;
-    let obtenD = document.innerHTML;
+function validaciones(event){
+    var nombre = document.getElementById("nombre");
+    var nombreLabel= document.getElementById("parrafoNombre"); 
+    if(!nombre.validity.valid){
+        nombreLabel.style.color = "red";
+        event.preventDefault();
+        return false;
+    }
 
-    ventana.document.write("Nombre: " + obtenN + "<br>");
-    ventana.document.write("Apelldios: " + apellidoF + "<br>");
-    ventana.document.write("Direccion: " + direccionF + "<br>");
-    ventana.document.write("<button onclick='opener.cerrar();'>Cerrar</button>");*/
-
+    var apellidos = document.getElementById("apellidos");
+    var apellidosLabel= document.getElementById("parrafoApellidos"); 
+    if(!apellidos.validity.valid){
+        apellidosLabel.style.color = "red";
+        event.preventDefault();
+        return false;
+    }
+    return true;
 }
 
