@@ -67,11 +67,12 @@
                         <input type="radio" name="entrega" required>Entrega
                         <input type="radio" name="entrega" required>Tarjeta
                     </p>
-                    <p>Tarjeta cliente:<br>
+                    <p id="tarjetaCliente">Tarjeta cliente:<br>
                         <input id="si" type="radio" name="si/no">Si
                         <input id="no" type="radio" name="si/no">No
+                        <input type="text" id="codigoTarjeta"  name="codigo" placeholder="Código" pattern="[a-zA-Z]{3}[0-9]{4}[/_.#&]$">
                     </p>
-                    <input id="codigoTarjeta" type="hidden" name="codigo" placeholder="Código">
+                  
                     <input type="submit" value="Realizar pedido"><br><br>
                     <button type="reset" value="Limpiar formulario">Limpiar formulario</button>
                 </fieldset>

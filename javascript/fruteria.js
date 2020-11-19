@@ -222,8 +222,13 @@ function botoncin(){
     
 }
 
-//función para que se hagan las validaciones del formulario
+//función para que se hagan las validaciones del formulario y todos los onclicks de la página
 window.onload = function(){
+    let codigo = document.getElementById("codigoTarjeta");
+    let botonSi = document.getElementById("si");
+    let botonNo = document.getElementById("no");
+    codigo.setAttribute("hidden","");
+    codigo.setAttribute("disabled","");
     document.getElementById("formulario").addEventListener('submit',function(event){
         let validar=validaciones(event);
         if(validar){
@@ -231,26 +236,23 @@ window.onload = function(){
             event.preventDefault();
         }
     },false);
-    document.getElementById("si").addEventListener('click',mostrarCodigoTarjeta,false);
-    document.getElementById("no").addEventListener('click',mostrarCodigoTarjeta,false);
-    document.getElementById("cerrar").addEventListener('click',cerrarVentana,false);
-    document.getElementById("tramitar").addEventListener('click',limpiar,false);
+    document.getElementById("si").addEventListener('click',function(){
+        if(botonSi.checked){
+            codigo.removeAttribute("hidden");
+            codigo.removeAttribute("disabled");
+        }
+    },false);
+    document.getElementById("no").addEventListener('click',function(){
+        if(botonNo.checked){
+            codigo.setAttribute("hidden","");
+            codigo.setAttribute("disabled","");
+        }
+    },false);
+    
+    
 }
 
-//función para mostrar el código de la tarjeta en caso de que pulsemos el botón sí
-function mostrarCodigoTarjeta(){
-    let codigo = document.getElementById("codigoTarjeta");
-    let botonSi = document.getElementById("si");
-    let botonNo = document.getElementById("no");
 
-    if(botonSi.checked){
-        botonSi.appendChild(codigo);
-        codigo.show;
-    }else if(botonNo.checked){
-        botonNo.appendChild(codigo);
-        codigo.hidden;
-    }
-}
 
 //variable para la ventana
 var ventanita;
@@ -259,13 +261,17 @@ function ventana() {
     ventanita = window.open("", "pop-up", "width=500,height=300, toolbar=false, menubar=false, location=false");
     ventanita.document.write(botoncin());
     ventanita.document.write("<input id=tramitar type=button value=Terminar pedido><br>");
-    ventanita.document.write("<input id=cerrar type=button value=Volver>");
+    ventanita.document.write("<input id='cerrar' type=button value=Volver>");
+    ventanita.getElementById('cerrar').addEventListener('click',cerrarVentana,false);
+    //ventanita.getElementById("tramitar").addEventListener('click',limpiar,false);
 }
+
 
 //función para cerrar la ventana emergente
 function cerrarVentana(){
     ventanita = window.close();
 }
+
 
 //función para limpiar la parte de la derecha y el formulario
 function limpiar(){
@@ -275,8 +281,6 @@ function limpiar(){
 
 //función para hacer las validaciones del formulario
 function validaciones(event){
-    let maxLetras = 15;
-    let minLetras = 4;
     var nombre = document.getElementById("nombre");
     var nombreLabel= document.getElementById("parrafoNombre"); 
     if(!nombre.validity.valid){
@@ -285,6 +289,8 @@ function validaciones(event){
         return false;
     }
 
+    let maxLetras = 15;
+    let minLetras = 4;
     if((nombre.length < minLetras) && (nombre.length > maxLetras)){
         return false;
     }
@@ -312,6 +318,19 @@ function validaciones(event){
         event.preventDefault();
         return false;
     }
+
+    var codigo = document.getElementById("codigoTarjeta");
+    var tarjeta= document.getElementById("tarjetaCliente"); 
+    if(!codigo.validity.valid){
+        tarjeta.style.color = "red";
+        event.preventDefault();
+        return false;
+    }
+
     return true;
+
+    
+
+
 }
 
